@@ -1,8 +1,8 @@
 # LAM: Official Pytorch Implementation
 
-[![Website](https://raw.githubusercontent.com/prs-eth/Marigold/main/doc/badges/badge-website.svg)](https://aigc3d.github.io/projects/LHM/) 
+[![Website](https://raw.githubusercontent.com/prs-eth/Marigold/main/doc/badges/badge-website.svg)](https://aigc3d.github.io/projects/LAM/) 
 [![arXiv Paper](https://img.shields.io/badge/📜-arXiv:2503-10625)](https://arxiv.org/pdf/2502.17796)
-[![HuggingFace](https://img.shields.io/badge/🤗-HuggingFace_Space-blue)](https://huggingface.co/spaces/3DAIGC/LAM)
+# [![HuggingFace](https://img.shields.io/badge/🤗-HuggingFace_Space-blue)](https://huggingface.co/spaces/3DAIGC/LAM)
 [![Apache License](https://img.shields.io/badge/📃-Apache--2.0-929292)](https://www.apache.org/licenses/LICENSE-2.0)
 
 <p align="center">
@@ -30,7 +30,7 @@
 
 ### To do list
 - [x] Release LAM-small trained on VFHQ and Nersemble.
-- [x] Release Huggingface space.
+- [ ] Release Huggingface space.
 - [ ] Release Modelscope space.
 - [ ] Release LAM-large trained on a self-constructed large dataset.
 - [ ] Release WebGL Render for cross-platform animation and rendering.
@@ -56,17 +56,17 @@ sh  ./scripts/install/install_cu121.sh
 | Model | Training Data | Link | Inference Time|
 | :--- | :--- | :--- | :--- |
 | LAM-20K | VFHQ | OSS | 1.4 s |
-| LAM-20K | VFHQ+Nersemble | [OSS](https://virutalbuy-public.oss-cn-hangzhou.aliyuncs.com/share/aigc3d/data/for_yisheng/LAM/LAM_20K.tar) | 1.4 s |
+| LAM-20K | VFHQ+Nersemble | [OSS](https://virutalbuy-public.oss-cn-hangzhou.aliyuncs.com/share/aigc3d/data/LAM/LAM_20K.tar) | 1.4 s |
 | LAM-20K | self-constructed large dataset | TBD  | 1.4 s |
 
 ```
-wget https://virutalbuy-public.oss-cn-hangzhou.aliyuncs.com/share/aigc3d/data/for_yisheng/LAM/LAM_20K.tar
-tar -xvf LAM-20K.tar 
+# Download from OSS. 
+wget https://virutalbuy-public.oss-cn-hangzhou.aliyuncs.com/share/aigc3d/data/LAM/LAM_20K.tar
+wget https://virutalbuy-public.oss-cn-hangzhou.aliyuncs.com/share/aigc3d/data/LAM/LAM_assets.tar
+wget https://virutalbuy-public.oss-cn-hangzhou.aliyuncs.com/share/aigc3d/data/LAM/LAM_human_model.tar
 
-# Download assets
-wget https://virutalbuy-public.oss-cn-hangzhou.aliyuncs.com/share/aigc3d/data/for_yisheng/LAM/LAM_assets.tar
+tar -xvf LAM-20K.tar 
 tar -xvf LAM_assets.tar
-wget https://virutalbuy-public.oss-cn-hangzhou.aliyuncs.com/share/aigc3d/data/for_yisheng/LAM/LAM_human_model.tar
 tar -xvf LAM_human_model.tar
 ```
 
