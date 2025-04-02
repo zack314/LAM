@@ -1,4 +1,4 @@
-# Copyright (c) 2023-2024, Zexin He
+# Copyright (c)  2024-2025, The Alibaba 3DAIGC Team Authors. 
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -17,5 +17,4 @@ from lam.utils.registry import Registry
 
 REGISTRY_RUNNERS = Registry()
 
-from .train import *
 from .infer import *

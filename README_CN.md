@@ -1,4 +1,4 @@
-# LAM: Official Pytorch Implementation
+# LAM: 官方Pytorch实现
 
 [![Website](https://raw.githubusercontent.com/prs-eth/Marigold/main/doc/badges/badge-website.svg)](https://aigc3d.github.io/projects/LAM/) 
 [![arXiv Paper](https://img.shields.io/badge/📜-arXiv:2503-10625)](https://arxiv.org/pdf/2502.17796)
@@ -13,36 +13,34 @@
 
 #####  <p align="center"> Yisheng He*, Xiaodong Gu*, Xiaodan Ye, Chao Xu, Zhengyi Zhao, Yuan Dong†, Weihao Yuan†, Zilong Dong, Liefeng Bo </p>
 
-#####  <p align="center"> Tongyi Lab, Alibaba Group</p>
+#####  <p align="center"> 阿里巴巴通义实验室</p>
 
-####  <p align="center"> **"Build 3D Interactive Chatting Avatar with One Image in Seconds!"** </p>
+####  <p align="center"> **"单图秒级打造超写实3D数字人"** </p>
 
 <p align="center">
   <img src="./assets/images/teaser.jpg" width="100%">
 </p>
 
-如果您熟悉中文，可以阅读我们[中文版本的文档](./README_CN.md)
+## 核心亮点 🔥🔥🔥
+- **单图秒级生成超写实3D数字人化身！**
+- **WebGL跨平台超实时驱动渲染！手机跑满120FPS！**
+- **低延迟实时交互对话数字人SDK！**
 
-## Core Highlights 🔥🔥🔥
-- **Ultra-realistic 3D Avatar Creation from One Image in Seconds**
-- **Super-fast Cross-platform Animating and Rendering on Any Devices**
-- **Low-latency SDK for Realtime Interactive Chatting Avatar**
+## 📢 最新动态
 
-## 📢 News
-
-### To do list
-- [x] Release LAM-small trained on VFHQ and Nersemble.
-- [x] Release Huggingface space.
-- [ ] Release Modelscope space.
-- [ ] Release LAM-large trained on a self-constructed large dataset.
-- [ ] Release WebGL Render for cross-platform animation and rendering.
-- [ ] Release audio driven model: Audio2Expression.
-- [ ] Release Interactive Chatting Avatar SDK with [OpenAvatarChat](https://github.com/HumanAIGC-Engineering/OpenAvatarChat), including LLM, ASR, TTS, Avatar.
+### 待办清单
+- [x] 开源在VFHQ和Nersemble数据集上训练的LAM-small模型.
+- [x] 部署Huggingface演示程序.
+- [ ] 部署Modelscope演示程序.
+- [ ] 开源在自有大数据集上训练的LAM-large模型.
+- [ ] 开源跨平台WebGL驱动渲染引擎.
+- [ ] 开源语音驱动模型: Audio2Expression.
+- [ ] 开源交互对话数字人SDK，包括LLM, ASR, TTS, Avatar.
 
 
 
-## 🚀 Get Started
-### Environment Setup
+## 🚀 快速开始
+### 环境设置
 ```bash
 git clone git@github.com:aigc3d/LAM.git
 cd LAM
@@ -52,68 +50,69 @@ sh  ./scripts/install/install_cu121.sh
 sh ./scripts/install/install_cu118.sh
 ```
 
-### Model Weights
+### 模型权重
 
-| Model   | Training Data                  | HuggingFace | OSS | Reconstruction Time | A100 (A & R) |   XiaoMi 14 Phone (A & R)          |
+| 模型   | 训练数据集                  | HuggingFace | OSS | 重建时间 | A100 (A & R) |   XiaoMi 14 Phone (A & R)          |
 |---------|--------------------------------|----------|----------|---------------------|-----------------------------|-----------|
 | LAM-20K | VFHQ                          | TBD       | TBD      | 1.4 s               | 562.9FPS                    | 110+FPS   |
 | LAM-20K | VFHQ + NeRSemble                | [Link](https://huggingface.co/3DAIGC/LAM-20K) | [Link](https://virutalbuy-public.oss-cn-hangzhou.aliyuncs.com/share/aigc3d/data/for_yisheng/LAM/LAM_20K.tar)   | 1.4 s               | 562.9FPS                    | 110+FPS   |
 | LAM-20K | Our large dataset | TBD      | TBD      | 1.4 s               | 562.9FPS                    | 110+FPS   |
 
-(**A & R:** Animating & Rendering )
+(**A & R:** 驱动渲染 )
 
-```
-# HuggingFace download
-# Download Assets
+```bash
+# 从HuggingFace下载
+# 下载相关资产
 huggingface-cli download 3DAIGC/LAM-assets --local-dir ./tmp
 tar -xf ./tmp/LAM_human_model.tar && rm ./tmp/LAM_human_model.tar
 tar -xf ./tmp/LAM_assets.tar && rm ./tmp/LAM_assets.tar
 huggingface-cli download yuandong513/flametracking_model --local-dir ./tmp/
 tar -xf ./tmp/pretrain_model.tar && rm -r ./tmp/
-# Download Model Weights
+# 下载模型权重
 huggingface-cli download 3DAIGC/LAM-20K --local-dir ./exps/releases/lam/lam-20k/step_045500/
 
 
-# Or OSS Download (In case of HuggingFace download failing)
-# Download assets
+# 或者从OSS下载 (如果你无法从HuggingFace下载)
+# 下载相关资产
 wget https://virutalbuy-public.oss-cn-hangzhou.aliyuncs.com/share/aigc3d/data/LAM/LAM_assets.tar
 tar -xf LAM_assets.tar && rm LAM_assets.tar
 wget https://virutalbuy-public.oss-cn-hangzhou.aliyuncs.com/share/aigc3d/data/LAM/LAM_human_model.tar
 tar -xf LAM_human_model.tar && rm LAM_human_model.tar
 wget https://virutalbuy-public.oss-cn-hangzhou.aliyuncs.com/share/aigc3d/data/LAM/tracking_pretrain_model.tar
 tar -xf tracking_pretrain_model.tar && rm tracking_pretrain_model.tar
-# Download Model Weights
+# 下载模型权重
 wget https://virutalbuy-public.oss-cn-hangzhou.aliyuncs.com/share/aigc3d/data/LAM/LAM_20K.tar
 tar -xf LAM_20K.tar && rm LAM_20K.tar
 ```
 
 
-### Gradio Run
+### 运行Gradio
 ```
 python app_lam.py
 ```
 
-### Inference
+### 推理
 ```bash
 sh ./scripts/inference.sh ${CONFIG} ${MODEL_NAME} ${IMAGE_PATH_OR_FOLDER} ${MOTION_SEQ}
 ```
 
-### Acknowledgement
-This work is built on many amazing research works and open-source projects:
+### 致谢
+本工作是建立在很多了不起的工作基础之上：
+
 - [OpenLRM](https://github.com/3DTopia/OpenLRM)
 - [GAGAvatar](https://github.com/xg-chu/GAGAvatar)
 - [GaussianAvatars](https://github.com/ShenhanQian/GaussianAvatars)
 - [VHAP](https://github.com/ShenhanQian/VHAP)
 
-Thanks for their excellent works and great contribution.
+感谢他们对社区的杰出贡献。
 
 
-### More Works
-Welcome to follow our other interesting works:
+### 更多工作
+欢迎关注我们更多有趣的工作
 - [LHM](https://github.com/aigc3d/LHM)
 
 
-### Citation
+### 引用
 ```
 @inproceedings{he2025LAM,
   title={LAM: Large Avatar Model for One-shot Animatable Gaussian Head},

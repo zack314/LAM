@@ -6,7 +6,6 @@ import numpy as np
 from PIL import Image
 import cv2
 import torch
-import decord
 
 
 def scale_intrs(intrs, ratio_x, ratio_y):

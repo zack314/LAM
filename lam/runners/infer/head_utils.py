@@ -1,13 +1,10 @@
 from collections import defaultdict
-import glob
 import os
 import json
 import numpy as np
 from PIL import Image
 import cv2
 import torch
-import decord
-import pickle as pkl
 
 
 def scale_intrs(intrs, ratio_x, ratio_y):

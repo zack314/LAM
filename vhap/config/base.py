@@ -77,8 +77,8 @@ class ModelConfig(Config):
     """Use a painted texture map instead the pca texture space as the base texture map"""
     tex_extra: bool = True
     """Optimize an extra texture map as the base texture map or the residual texture map"""
-    # tex_clusters: tuple[str, ...] = ("skin", "hair", "sclerae", "lips_tight", "boundary")
-    tex_clusters: tuple[str, ...] = ("skin", "hair", "boundary", "lips_tight", "teeth", "sclerae", "irises")
+    # tex_clusters: tuple[str, ...] = ("skin", "hair", "sclerae", "lips_tight", "teeth", "boundary")
+    tex_clusters: tuple[str, ...] = ("skin", "hair", "boundary", "lips_tight", "sclerae", "irises")
     """Regions that are supposed to share a similar color inside"""
     residual_tex: bool = True
     """Use the extra texture map as a residual component on top of the base texture"""
@@ -350,4 +350,8 @@ class BaseTrackingConfig(Config):
 
 if __name__ == "__main__":
     config = tyro.cli(BaseTrackingConfig)
-    print(tyro.to_yaml(config))
+    config_yml = tyro.to_yaml(config)
+    print(config_yml)
+    from yaml import safe_dump, safe_load
+    with open("configs/vhap_tracking/base_tracking_config.yaml", 'w') as file:
+        safe_dump(config_yml, file)

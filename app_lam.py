@@ -1,4 +1,4 @@
-# Copyright (c) 2024-2025, Yisheng He, Yuan Dong
+# Copyright (c) 2024-2025, The Alibaba 3DAIGC Team Authors. 
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -30,7 +30,7 @@ from glob import glob
 import moviepy.editor as mpy
 from lam.utils.ffmpeg_utils import images_to_video
 from tools.flame_tracking_single_image import FlameTrackingSingleImage
-from gradio_gaussian_render import gaussian_render
+# from gradio_gaussian_render import gaussian_render
 from lam.runners.infer.head_utils import prepare_motion_seqs, preprocess_image
 
 try:
@@ -316,7 +316,7 @@ def demo_lam(flametracking, lam, cfg):
         dump_video_path_wa = dump_video_path.replace(".mp4", "_audio.mp4")
         add_audio_to_video(dump_video_path, dump_video_path_wa, audio_path)
 
-        return dump_image_path, dump_video_path
+        return dump_image_path, dump_video_path_wa
 
     with gr.Blocks(analytics_enabled=False) as demo:
 

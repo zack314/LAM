@@ -32,9 +32,9 @@ from omegaconf import OmegaConf
 
 sys.path.append(".")
 
-from LHM.models import model_dict
-from LHM.utils.hf_hub import wrap_model_hub
-from LHM.utils.proxy import no_proxy
+from lam.models import model_dict
+from lam.utils.hf_hub import wrap_model_hub
+from lam.utils.proxy import no_proxy
 
 
 @no_proxy

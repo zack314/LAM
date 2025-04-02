@@ -1,4 +1,4 @@
-# Copyright (c) 2023-2024, Zexin He
+# Copyright (c) 2024-2025, The Alibaba 3DAIGC Team Authors. 
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -21,8 +21,8 @@ import argparse
 
 from accelerate import Accelerator
 
-from LHM.models import model_dict
-from LHM.utils.hf_hub import wrap_model_hub
+from lam.models import model_dict
+from lam.utils.hf_hub import wrap_model_hub
 
 if __name__ == "__main__":
 

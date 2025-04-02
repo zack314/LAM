@@ -1,4 +1,4 @@
-# Copyright (c) 2023-2024, Zexin He
+# Copyright (c) 2024-2025, The Alibaba 3DAIGC Team Authors. 
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -131,36 +131,8 @@ class ModelLAM(nn.Module):
     
     @staticmethod
     def _encoder_fn(encoder_type: str):
-        encoder_type = encoder_type.lower()
-        assert encoder_type in ['dino', 'dinov2', 'dinov2_unet', 'resunet', 'dinov2_featup', 'dinov2_dpt', 'dinov2_fusion'], "Unsupported encoder type"
-        if encoder_type == 'dino':
-            from .encoders.dino_wrapper import DinoWrapper
-            # logger.info("Using DINO as the encoder")
-            return DinoWrapper
-        elif encoder_type == 'dinov2':
-            from .encoders.dinov2_wrapper import Dinov2Wrapper
-            # logger.info("Using DINOv2 as the encoder")
-            return Dinov2Wrapper
-        elif encoder_type == 'dinov2_unet':
-            from .encoders.dinov2_unet_wrapper import Dinov2UnetWrapper
-            # logger.info("Using Dinov2Unet as the encoder")
-            return Dinov2UnetWrapper
-        elif encoder_type == 'resunet':
-            from .encoders.xunet_wrapper import XnetWrapper
-            # logger.info("Using XnetWrapper as the encoder")
-            return XnetWrapper
-        elif encoder_type == 'dinov2_featup':
-            from .encoders.dinov2_featup_wrapper import Dinov2FeatUpWrapper
-            # logger.info("Using Dinov2FeatUpWrapper as the encoder")
-            return Dinov2FeatUpWrapper
-        elif encoder_type == 'dinov2_dpt':
-            from .encoders.dinov2_dpt_wrapper import Dinov2DPTWrapper
-            # logger.info("Using Dinov2DPTWrapper as the encoder")
-            return Dinov2DPTWrapper
-        elif encoder_type == 'dinov2_fusion':
-            from .encoders.dinov2_fusion_wrapper import Dinov2FusionWrapper
-            # logger.info("Using Dinov2FusionWrapper as the encoder")
-            return Dinov2FusionWrapper
+        from .encoders.dinov2_fusion_wrapper import Dinov2FusionWrapper
+        return Dinov2FusionWrapper
         
     def forward_transformer(self, image_feats, camera_embeddings, query_points, query_feats=None):
         # assert image_feats.shape[0] == camera_embeddings.shape[0], \

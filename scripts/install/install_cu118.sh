@@ -5,20 +5,14 @@ pip install -U xformers==0.0.26.post1 --index-url https://download.pytorch.org/w
 # install dependencies
 pip install -r requirements.txt
 
-cd ..
-# install pytorch3d
-pip install "git+https://github.com/facebookresearch/pytorch3d.git"
-
-# install diff-gaussian-rasterization
-pip install git+https://github.com/ashawkey/diff-gaussian-rasterization/
-
-# or
+# === If you fail to install some modules due to network connection, you can also try the following: ===
+# git clone https://github.com/facebookresearch/pytorch3d.git
+# pip install ./pytorch3d
 # git clone --recursive https://github.com/ashawkey/diff-gaussian-rasterization
 # pip install ./diff-gaussian-rasterization
-
-# install simple-knn
-pip install git+https://github.com/camenduru/simple-knn/
-
-# or
 # git clone https://github.com/camenduru/simple-knn.git
 # pip install ./simple-knn
+
+cd external/landmark_detection/FaceBoxesV2/utils/
+sh make.sh
+cd ../../../../
