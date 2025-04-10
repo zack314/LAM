@@ -3,6 +3,7 @@
 [![Website](https://raw.githubusercontent.com/prs-eth/Marigold/main/doc/badges/badge-website.svg)](https://aigc3d.github.io/projects/LAM/) 
 [![arXiv Paper](https://img.shields.io/badge/📜-arXiv:2503-10625)](https://arxiv.org/pdf/2502.17796)
 [![HuggingFace](https://img.shields.io/badge/🤗-HuggingFace_Space-blue)](https://huggingface.co/spaces/3DAIGC/LAM)
+[![ModelScope](https://img.shields.io/badge/%20ModelScope%20-Space-blue)](https://www.modelscope.cn/studios/Damo_XR_Lab/LAM_Large_Avatar_Model) 
 [![Apache License](https://img.shields.io/badge/📃-Apache--2.0-929292)](https://www.apache.org/licenses/LICENSE-2.0)
 
 <p align="center">
@@ -33,7 +34,7 @@
 ### To do list
 - [x] Release LAM-small trained on VFHQ and Nersemble.
 - [x] Release Huggingface space.
-- [ ] Release Modelscope space.
+- [x] Release Modelscope space.
 - [ ] Release LAM-large trained on a self-constructed large dataset.
 - [ ] Release WebGL Render for cross-platform animation and rendering.
 - [ ] Release audio driven model: Audio2Expression.

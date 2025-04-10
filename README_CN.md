@@ -3,6 +3,7 @@
 [![Website](https://raw.githubusercontent.com/prs-eth/Marigold/main/doc/badges/badge-website.svg)](https://aigc3d.github.io/projects/LAM/) 
 [![arXiv Paper](https://img.shields.io/badge/📜-arXiv:2503-10625)](https://arxiv.org/pdf/2502.17796)
 [![HuggingFace](https://img.shields.io/badge/🤗-HuggingFace_Space-blue)](https://huggingface.co/spaces/3DAIGC/LAM)
+[![ModelScope](https://img.shields.io/badge/%20ModelScope%20-Space-blue)](https://www.modelscope.cn/studios/Damo_XR_Lab/LAM_Large_Avatar_Model)
 [![Apache License](https://img.shields.io/badge/📃-Apache--2.0-929292)](https://www.apache.org/licenses/LICENSE-2.0)
 
 <p align="center">
@@ -31,7 +32,7 @@
 ### 待办清单
 - [x] 开源在VFHQ和Nersemble数据集上训练的LAM-small模型.
 - [x] 部署Huggingface演示程序.
-- [ ] 部署Modelscope演示程序.
+- [x] 部署Modelscope演示程序.
 - [ ] 开源在自有大数据集上训练的LAM-large模型.
 - [ ] 开源跨平台WebGL驱动渲染引擎.
 - [ ] 开源语音驱动模型: Audio2Expression.
