@@ -138,10 +138,10 @@ class LAMInferrer(Inferrer):
         self.model: LAMInferrer = self._build_model(self.cfg).to(self.device)
 
         self.flametracking = FlameTrackingSingleImage(output_dir='tracking_output',
-                                             alignment_model_path='./pretrain_model/68_keypoints_model.pkl',
-                                             vgghead_model_path='./pretrain_model/vgghead/vgg_heads_l.trcd',
-                                             human_matting_path='./pretrain_model/matting/stylematte_synth.pt',
-                                             facebox_model_path='./pretrain_model/FaceBoxesV2.pth',
+                                             alignment_model_path='./model_zoo/flame_tracking_models/68_keypoints_model.pkl',
+                                             vgghead_model_path='./model_zoo/flame_tracking_models/vgghead/vgg_heads_l.trcd',
+                                             human_matting_path='./model_zoo/flame_tracking_models/matting/stylematte_synth.pt',
+                                             facebox_model_path='./model_zoo/flame_tracking_models/FaceBoxesV2.pth',
                                              detect_iris_landmarks=True,
                                              args = self.cfg)
 

@@ -249,8 +249,8 @@ def demo_lam(flametracking, lam, cfg):
         assert (return_code == 0), "flametracking export failed!"
 
         image_path = os.path.join(output_dir, "images/00000_00.png")
-        mask_path = image_path.replace("/images/", "/fg_masks/").replace(".jpg", ".png")
-        print(image_path, mask_path)
+        mask_path = os.path.join(output_dir, "fg_masks/00000_00.png")
+        print("image_path:", image_path, "\n"+"mask_path:", mask_path)
 
         aspect_standard = 1.0/1.0
         source_size = cfg.source_size
@@ -441,12 +441,28 @@ def demo_lam(flametracking, lam, cfg):
 
 
 def _build_model(cfg):
-    from lam.models import model_dict
-    from lam.utils.hf_hub import wrap_model_hub
+    from lam.models import ModelLAM
+    from safetensors.torch import load_file
 
-    hf_model_cls = wrap_model_hub(model_dict["lam"])
-    model = hf_model_cls.from_pretrained(cfg.model_name)
-
+    model = ModelLAM(**cfg.model)
+    resume = os.path.join(cfg.model_name, "model.safetensors")
+    print("="*100)
+    print("loading pretrained weight from:", resume)
+    if resume.endswith('safetensors'):
+        ckpt = load_file(resume, device='cpu')
+    else:
+        ckpt = torch.load(resume, map_location='cpu')
+    state_dict = model.state_dict()
+    for k, v in ckpt.items():
+        if k in state_dict:
+            if state_dict[k].shape == v.shape:
+                state_dict[k].copy_(v)
+            else:
+                print(f"WARN] mismatching shape for param {k}: ckpt {v.shape} != model {state_dict[k].shape}, ignored.")
+        else:
+            print(f"WARN] unexpected param {k}: {v.shape}")
+    print("finish loading pretrained weight from:", resume)
+    print("="*100)
     return model
 
 
@@ -455,7 +471,7 @@ def launch_gradio_app():
     os.environ.update({
         'APP_ENABLED': '1',
         'APP_MODEL_NAME':
-        './exps/releases/lam/lam-20k/step_045500/',
+        './model_zoo/lam_models/releases/lam/lam-20k/step_045500/',
         'APP_INFER': './configs/inference/lam-20k-8gpu.yaml',
         'APP_TYPE': 'infer.lam',
         'NUMBA_THREADING_LAYER': 'omp',
@@ -466,10 +482,10 @@ def launch_gradio_app():
     lam.to('cuda')
 
     flametracking = FlameTrackingSingleImage(output_dir='tracking_output',
-                                             alignment_model_path='./pretrain_model/68_keypoints_model.pkl',
-                                             vgghead_model_path='./pretrain_model/vgghead/vgg_heads_l.trcd',
-                                             human_matting_path='./pretrain_model/matting/stylematte_synth.pt',
-                                             facebox_model_path='./pretrain_model/FaceBoxesV2.pth',
+                                             alignment_model_path='./model_zoo/flame_tracking_models/68_keypoints_model.pkl',
+                                             vgghead_model_path='./model_zoo/flame_tracking_models/vgghead/vgg_heads_l.trcd',
+                                             human_matting_path='./model_zoo/flame_tracking_models/matting/stylematte_synth.pt',
+                                             facebox_model_path='./model_zoo/flame_tracking_models/FaceBoxesV2.pth',
                                              detect_iris_landmarks=True)
 
     demo_lam(flametracking, lam, cfg)

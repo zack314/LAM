@@ -56,7 +56,7 @@
 ## 🚀 Get Started
 ### Environment Setup
 ```bash
-git clone git@github.com:aigc3d/LAM.git
+git clone https://github.com/aigc3d/LAM.git
 cd LAM
 # Install with Cuda 12.1
 sh  ./scripts/install/install_cu121.sh
@@ -66,37 +66,33 @@ sh ./scripts/install/install_cu118.sh
 
 ### Model Weights
 
-| Model   | Training Data                  | HuggingFace | OSS | Reconstruction Time | A100 (A & R) |   XiaoMi 14 Phone (A & R)          |
+| Model   | Training Data                  | HuggingFace | ModelScope | Reconstruction Time | A100 (A & R) |   XiaoMi 14 Phone (A & R)          |
 |---------|--------------------------------|----------|----------|---------------------|-----------------------------|-----------|
 | LAM-20K | VFHQ                          | TBD       | TBD      | 1.4 s               | 562.9FPS                    | 110+FPS   |
-| LAM-20K | VFHQ + NeRSemble                | [Link](https://huggingface.co/3DAIGC/LAM-20K) | [Link](https://virutalbuy-public.oss-cn-hangzhou.aliyuncs.com/share/aigc3d/data/for_yisheng/LAM/LAM_20K.tar)   | 1.4 s               | 562.9FPS                    | 110+FPS   |
+| LAM-20K | VFHQ + NeRSemble                | [Link](https://huggingface.co/3DAIGC/LAM-20K) | [Link](https://www.modelscope.cn/models/Damo_XR_Lab/LAM-20K/summary)   | 1.4 s               | 562.9FPS                    | 110+FPS   |
 | LAM-20K | Our large dataset | TBD      | TBD      | 1.4 s               | 562.9FPS                    | 110+FPS   |
 
 (**A & R:** Animating & Rendering )
 
-```
-# HuggingFace download
+#### HuggingFace Download
+```bash
 # Download Assets
 huggingface-cli download 3DAIGC/LAM-assets --local-dir ./tmp
-tar -xf ./tmp/LAM_human_model.tar && rm ./tmp/LAM_human_model.tar
 tar -xf ./tmp/LAM_assets.tar && rm ./tmp/LAM_assets.tar
-huggingface-cli download yuandong513/flametracking_model --local-dir ./tmp/
-tar -xf ./tmp/pretrain_model.tar && rm -r ./tmp/
+tar -xf ./tmp/thirdparty_models.tar && rm -r ./tmp/
 # Download Model Weights
-huggingface-cli download 3DAIGC/LAM-20K --local-dir ./exps/releases/lam/lam-20k/step_045500/
+huggingface-cli download 3DAIGC/LAM-20K --local-dir ./model_zoo/lam_models/releases/lam/lam-20k/step_045500/
+```
 
-
-# Or OSS Download (In case of HuggingFace download failing)
-# Download assets
-wget https://virutalbuy-public.oss-cn-hangzhou.aliyuncs.com/share/aigc3d/data/LAM/LAM_assets.tar
-tar -xf LAM_assets.tar && rm LAM_assets.tar
-wget https://virutalbuy-public.oss-cn-hangzhou.aliyuncs.com/share/aigc3d/data/LAM/LAM_human_model.tar
-tar -xf LAM_human_model.tar && rm LAM_human_model.tar
-wget https://virutalbuy-public.oss-cn-hangzhou.aliyuncs.com/share/aigc3d/data/LAM/tracking_pretrain_model.tar
-tar -xf tracking_pretrain_model.tar && rm tracking_pretrain_model.tar
+#### ModelScope Download 
+```bash
+pip3 install modelscope
+# Download Assets
+modelscope download --model "Damo_XR_Lab/LAM-assets" --local_dir "./tmp/"
+tar -xf ./tmp/LAM_assets.tar && rm ./tmp/LAM_assets.tar
+tar -xf ./tmp/thirdparty_models.tar && rm -r ./tmp/
 # Download Model Weights
-wget https://virutalbuy-public.oss-cn-hangzhou.aliyuncs.com/share/aigc3d/data/LAM/LAM_20K.tar
-tar -xf LAM_20K.tar && rm LAM_20K.tar
+modelscope download "Damo_XR_Lab/LAM-20K" --local_dir "./model_zoo/lam_models/releases/lam/lam-20k/step_045500/"
 ```
 
 

@@ -24,7 +24,7 @@ model:
     encoder_grad_ckpt: true
 
     # for gs renderer
-    human_model_path: "./pretrained_models/human_model_files"
+    human_model_path: "./model_zoo/human_parametric_models"
     flame_subdivide_num: 1
     flame_type: "flame"
     gs_query_dim: 1024

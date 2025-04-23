@@ -858,7 +858,7 @@ class GS3DRenderer(nn.Module):
 def test_head():
     import cv2
     
-    human_model_path = "./pretrained_models/human_model_files"
+    human_model_path = "./model_zoo/human_parametric_models"
     device = "cuda"
     
     from accelerate.utils import set_seed

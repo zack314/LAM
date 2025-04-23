@@ -6,7 +6,7 @@ import torchvision
 from .stylematte import StyleMatte
 
 class StyleMatteEngine(torch.nn.Module):
-    def __init__(self, device='cpu',human_matting_path='./pretrain_model/matting/stylematte_synth.pt'):
+    def __init__(self, device='cpu',human_matting_path='./model_zoo/flame_tracking_models/matting/stylematte_synth.pt'):
         super().__init__()
         self._device = device
         self.normalize = torchvision.transforms.Normalize(mean=[0.485, 0.456, 0.406], std=[0.229, 0.224, 0.225])

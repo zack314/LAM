@@ -222,7 +222,7 @@ def predict_motion_seqs_from_images(image_folder:str, save_root, fps=6):
     return save_flame_root, image_folder
 
 
-def render_flame_mesh(data, render_intrs, c2ws, human_model_path="./pretrained_models/human_model_files"):
+def render_flame_mesh(data, render_intrs, c2ws, human_model_path="./model_zoo/human_parametric_models"):
     from lam.models.rendering.flame_model.flame import FlameHead, FlameHeadSubdivided
     from lam.models.rendering.utils.vis_utils import render_mesh
 
@@ -232,10 +232,10 @@ def render_flame_mesh(data, render_intrs, c2ws, human_model_path="./pretrained_m
         100,
         add_teeth=True,
         add_shoulder=False,
-        flame_model_path='pretrained_models/human_model_files/flame_assets/flame/flame2023.pkl',
-        flame_lmk_embedding_path="pretrained_models/human_model_files/flame_assets/flame/landmark_embedding_with_eyes.npy",
-        flame_template_mesh_path="pretrained_models/human_model_files/flame_assets/flame/head_template_mesh.obj",
-        flame_parts_path="pretrained_models/human_model_files/flame_assets/flame/FLAME_masks.pkl",
+        flame_model_path='model_zoo/human_parametric_models/flame_assets/flame/flame2023.pkl',
+        flame_lmk_embedding_path="model_zoo/human_parametric_models/flame_assets/flame/landmark_embedding_with_eyes.npy",
+        flame_template_mesh_path="model_zoo/human_parametric_models/flame_assets/flame/head_template_mesh.obj",
+        flame_parts_path="model_zoo/human_parametric_models/flame_assets/flame/FLAME_masks.pkl",
         subdivide_num=subdivide
     ).cuda()
 

@@ -1,7 +1,7 @@
 # step1. set TRAIN_CONFIG path to config file
 
 TRAIN_CONFIG="configs/inference/lam-20k-8gpu.yaml"
-MODEL_NAME="exps/releases/lam/lam-20k/step_045500/"
+MODEL_NAME="model_zoo/lam_models/releases/lam/lam-20k/step_045500/"
 IMAGE_INPUT="assets/sample_input/status.png"
 MOTION_SEQS_DIR="assets/sample_motion/export/Look_In_My_Eyes/"
 

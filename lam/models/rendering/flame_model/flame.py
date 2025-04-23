@@ -1579,7 +1579,7 @@ if __name__ == '__main__':
     subdivide_num = 0 
     teeth_bs_flag = False
     oral_mesh_flag = False
-    human_model_path = "./pretrained_models/human_model_files"
+    human_model_path = "./model_zoo/human_parametric_models"
     flame_model = FlameHeadSubdivided(
         300,
         100,

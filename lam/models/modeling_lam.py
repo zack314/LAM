@@ -41,7 +41,7 @@ class ModelLAM(nn.Module):
                  encoder_freeze: bool = True, encoder_type: str = 'dino',
                  encoder_model_name: str = 'facebook/dino-vitb16', encoder_feat_dim: int = 768,
                  num_pcl: int=2048, pcl_dim: int=512,
-                 human_model_path=None,
+                 human_model_path="./model_zoo/human_parametric_models",
                  flame_subdivide_num=2,
                  flame_type="flame",
                  gs_query_dim=None,

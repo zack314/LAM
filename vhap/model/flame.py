@@ -35,13 +35,13 @@ from PIL import Image
 logger = get_logger(__name__)
 
 # FLAME_MODEL_PATH = "asset/flame/generic_model.pkl"
-FLAME_MODEL_PATH = "pretrained_models/human_model_files/flame_vhap/flame2023.pkl"
-FLAME_MESH_PATH = "pretrained_models/human_model_files/flame_vhap/head_template_mesh.obj"
-FLAME_PARTS_PATH = "pretrained_models/human_model_files/flame_vhap/FLAME_masks.pkl"
-FLAME_LMK_PATH = "pretrained_models/human_model_files/flame_vhap/landmark_embedding_with_eyes.npy"
-FLAME_TEX_PATH = "pretrained_models/human_model_files/flame_vhap/FLAME_texture.npz"
-FLAME_PAINTED_TEX_PATH = "pretrained_models/human_model_files/flame_vhap/tex_mean_painted.png"
-FLAME_UVMASK_PATH = "pretrained_models/human_model_files/flame_vhap/uv_masks.npz"
+FLAME_MODEL_PATH = "model_zoo/human_parametric_models/flame_vhap/flame2023.pkl"
+FLAME_MESH_PATH = "model_zoo/human_parametric_models/flame_vhap/head_template_mesh.obj"
+FLAME_PARTS_PATH = "model_zoo/human_parametric_models/flame_vhap/FLAME_masks.pkl"
+FLAME_LMK_PATH = "model_zoo/human_parametric_models/flame_vhap/landmark_embedding_with_eyes.npy"
+FLAME_TEX_PATH = "model_zoo/human_parametric_models/flame_vhap/FLAME_texture.npz"
+FLAME_PAINTED_TEX_PATH = "model_zoo/human_parametric_models/flame_vhap/tex_mean_painted.png"
+FLAME_UVMASK_PATH = "model_zoo/human_parametric_models/flame_vhap/uv_masks.npz"
 
 
 def to_tensor(array, dtype=torch.float32):
