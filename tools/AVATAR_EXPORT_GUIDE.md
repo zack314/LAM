@@ -1,4 +1,4 @@
-## Export Chatting Avatar File
+## Export Chatting Avatar Guide
 ### 🛠️ Environment Setup
 #### Prerequisites
 ```

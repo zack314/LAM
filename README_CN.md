@@ -38,7 +38,7 @@
 
 ## 📢 最新动态
 
-**[2025年4月30日]** 我们开源了 [Gradio 导出功能](tools/README.md)，允许用户在 OpenAvatarChat 平台上与任何由 LAM 生成的 3D 数字人进行交流！🔥 <br>
+**[2025年4月30日]** 我们开源了 [Avatar 导出功能](tools/AVATAR_EXPORT_GUIDE.md)，允许用户在 OpenAvatarChat 平台上接入任何由 LAM 生成的 3D 数字人进行实时对话！🔥 <br>
 
 **[2025年4月21日]** 我们开源了 WebGL交互数字人SDK：[OpenAvatarChat](https://github.com/HumanAIGC-Engineering/OpenAvatarChat) (including LLM, ASR, TTS, Avatar), 使用这个SDK可以自由地与我们的LAM-3D数字人进行实时对话 ! 🔥 <br>
 
@@ -58,7 +58,14 @@
 
 
 ## 🚀 快速开始
+
+我们提供了在Windows系统（Cuda 12.8）上的一键安装包，感谢"十字鱼"的支持. &nbsp; &nbsp;
+[视频](https://www.bilibili.com/video/BV1vzL8zAEUu) &nbsp; &nbsp;
+[下载链接](https://virutalbuy-public.oss-cn-hangzhou.aliyuncs.com/share/aigc3d/data/LAM/Installation/LAM-windows-one-click-install.zip)
+
 ### 环境设置
+
+#### Linux:
 ```bash
 git clone  https://github.com/aigc3d/LAM.git
 cd LAM
@@ -67,6 +74,9 @@ sh  ./scripts/install/install_cu121.sh
 # Or Install with Cuda 11.8
 sh ./scripts/install/install_cu118.sh
 ```
+
+#### Windows:
+在Windows系统上的环境安装请参考 [Windows Install Guide](scripts/install/WINDOWS_INSTALL.md).
 
 ### 模型权重
 
@@ -106,7 +116,7 @@ modelscope download "Damo_XR_Lab/LAM-20K" --local_dir "./model_zoo/lam_models/re
 ```
 python app_lam.py
 ```
-若需导出ZIP文件以在 OpenAvatarChat 实现实时对话，请[参考文档](tools/README.md)。
+若需导出ZIP文件以在 OpenAvatarChat 实现实时对话，请参考[指引文档](tools/AVATAR_EXPORT_GUIDE.md)。
 ```bash
 python app_lam.py --blender_path /path/blender
 ```
