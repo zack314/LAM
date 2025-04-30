@@ -1,5 +1,9 @@
 # LAM: 官方Pytorch实现
 
+<p align="center">
+<strong><a href="README.md">English</a> | 中文</strong>
+</p>
+
 [![Website](https://raw.githubusercontent.com/prs-eth/Marigold/main/doc/badges/badge-website.svg)](https://aigc3d.github.io/projects/LAM/) 
 [![arXiv Paper](https://img.shields.io/badge/📜-arXiv:2503-10625)](https://arxiv.org/pdf/2502.17796)
 [![HuggingFace](https://img.shields.io/badge/🤗-HuggingFace_Space-blue)](https://huggingface.co/spaces/3DAIGC/LAM)
@@ -33,6 +37,8 @@
 </div>
 
 ## 📢 最新动态
+
+**[2025年4月30日]** 我们开源了 [Gradio 导出功能](tools/README.md)，允许用户在 OpenAvatarChat 平台上与任何由 LAM 生成的 3D 数字人进行交流！🔥 <br>
 
 **[2025年4月21日]** 我们开源了 WebGL交互数字人SDK：[OpenAvatarChat](https://github.com/HumanAIGC-Engineering/OpenAvatarChat) (including LLM, ASR, TTS, Avatar), 使用这个SDK可以自由地与我们的LAM-3D数字人进行实时对话 ! 🔥 <br>
 
@@ -99,6 +105,10 @@ modelscope download "Damo_XR_Lab/LAM-20K" --local_dir "./model_zoo/lam_models/re
 ### 运行Gradio
 ```
 python app_lam.py
+```
+若需导出ZIP文件以在 OpenAvatarChat 实现实时对话，请[参考文档](tools/README.md)。
+```bash
+python app_lam.py --blender_path /path/blender
 ```
 
 ### 推理
