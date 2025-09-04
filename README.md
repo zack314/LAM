@@ -162,12 +162,11 @@ Welcome to follow our other interesting works:
 
 ### Citation
 ```
-@inproceedings{he2025LAM,
+@inproceedings{he2025lam,
   title={LAM: Large Avatar Model for One-shot Animatable Gaussian Head},
-  author={
-    Yisheng He and Xiaodong Gu and Xiaodan Ye and Chao Xu and Zhengyi Zhao and Yuan Dong and Weihao Yuan and Zilong Dong and Liefeng Bo
-  },
-  booktitle={SIGGRAPH},
+  author={He, Yisheng and Gu, Xiaodong and Ye, Xiaodan and Xu, Chao and Zhao, Zhengyi and Dong, Yuan and Yuan, Weihao and Dong, Zilong and Bo, Liefeng},
+  booktitle={Proceedings of the Special Interest Group on Computer Graphics and Interactive Techniques Conference Conference Papers},
+  pages={1--13},
   year={2025}
 }
 ```
